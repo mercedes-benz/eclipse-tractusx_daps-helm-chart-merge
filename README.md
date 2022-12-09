@@ -1,4 +1,4 @@
-# daps-server
+# DAPS Server
 
 
 Notice: Tractus-x relies on an IDS-compatible architecture. In that context, a DAPS is needed as an identity server. In this project, we use Fraunhofer's DAPS implementation (https://github.com/Fraunhofer-AISEC/omejdn-server#readme). We recommend choosing your favorite identity server. The provided helm charts here need to be adapted accordingly.
@@ -145,18 +145,18 @@ You may retrieve the server configuration under
 | tolerations | list | `[]` | Pod toleration settings |
 
 
-# Installation Steps:- 
+# Installation Steps
 
 Helm charts are provided inside [https://github.com/catenax-ng/product-DAPS/charts/](https://github.com/catenax-ng/product-DAPS/tree/main/charts)
 
-1. Using helm commands:-  
+1. Using helm commands:
 
-    a.) git clone https://github.com/catenax-ng/product-DAPS.git  <br />
-    b.) Add the daps image and version in values.yaml  <br />
-    c.) Deploy in a kubernetes cluster  <br />
-        helm install dapsName charts/daps-server/ -n NameSpace  <br />
+   1. git clone https://github.com/eclipse-tractusx/daps-helm-chart.git
+   1. Add the daps image and version in values.yaml
+   1. Deploy in a kubernetes cluster
+        ```helm install dapsName charts/daps-server/ -n namespace```
 
-2. Using ArgoCD. 
+1. Using ArgoCD:
 
 To see how to deploy an application on 'Hotel Budapest': 
 [How to deploy](https://catenax-ng.github.io/docs/guides/how-to-deploy-an-application)
