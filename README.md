@@ -22,6 +22,8 @@ A User Selfservice API Plugin
 Standard Compliance (see below)
 IMPORTANT: DAPS is meant to be a research sandbox in which we can (re)implement standard protocols and potentially extend and modify functionality under the hood to support research projects. Use at your own risk! At a minimum, take a look at the documentation for production setups.
 
+##DAPS installed version -> v1.7.1
+
 ## Directory structure of an DAPS server
 By default, daps uses the following directory structure for configurations and keys:  <br />
 
