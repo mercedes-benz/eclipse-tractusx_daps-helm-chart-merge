@@ -7,7 +7,7 @@ Notice: Tractus-x relies on an IDS-compatible architecture. In that context, a D
 
 [https://github.com/Fraunhofer-AISEC/omejdn-server#readme ](https://github.com/Fraunhofer-AISEC/omejdn-server#readme) 
 
-DAPS is a minimal but extensible OAuth 2.0/OpenID connect server used for ...
+DAPS is a minimal but extensible OAuth 2.0/OpenID connect server used for ..
 
 IoT devices which use their private keys to request OAuth2 access tokens in order to access protected resources
 Websites or apps which retrieve user attributes
