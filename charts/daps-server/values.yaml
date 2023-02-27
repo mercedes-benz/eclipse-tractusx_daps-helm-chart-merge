@@ -7,7 +7,7 @@ replicaCount: 1
 
 image:
   # -- DAPS docker image
-  repository: 
+  repository: ghcr.io/fraunhofer-aisec/omejdn-server
   # -- Image pull policy
   pullPolicy: IfNotPresent
   # -- Image tag. Overrides the image tag whose default is the chart appVersion.
