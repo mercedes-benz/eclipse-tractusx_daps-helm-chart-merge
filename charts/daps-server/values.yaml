@@ -90,7 +90,7 @@ persistence:
   # -- Storage class to claim a volume.
   storageClass: "azurefile"
   # -- Volume size
-  storageSize: "1Gi"
+  storageSize: "2Gi"
 
 env:
   # -- Additional env variables
