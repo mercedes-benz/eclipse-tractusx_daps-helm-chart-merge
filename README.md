@@ -29,6 +29,7 @@ Helm version is v1.7.3
 Application version is v1.7.1
 ```
 
+
 ## Directory structure of an DAPS server
 By default, daps uses the following directory structure for configurations and keys:  <br />
 
