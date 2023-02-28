@@ -1,6 +1,6 @@
 # daps-server
 
-![Version: 1.7.3](https://img.shields.io/badge/Version-1.7.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.7.1](https://img.shields.io/badge/AppVersion-1.7.1-informational?style=flat-square)
+![Version: 1.7.4](https://img.shields.io/badge/Version-1.7.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.7.1](https://img.shields.io/badge/AppVersion-1.7.1-informational?style=flat-square)
 
 DAPS server helm-chart
 
@@ -20,7 +20,7 @@ DAPS server helm-chart
 | env.secret | object | `{}` | Additional env variables that should be stored in encrypted way |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` | Image pull policy |
-| image.repository | string | `nil` | DAPS docker image |
+| image.repository | string | `""` | DAPS docker image |
 | image.tag | string | `""` | Image tag. Overrides the image tag whose default is the chart appVersion. |
 | imagePullSecrets | list | `[]` | Secret which contains dockerconfig.json from private container registry with daps image |
 | ingress.annotations | object | `{}` | Additional ingress annotations |
@@ -39,7 +39,7 @@ DAPS server helm-chart
 | omejdn.serverKeyFolderPath | string | `"/opt"` | Path to directory with private server key |
 | persistence.enabled | bool | `true` | If `true` persistent volume will be used to store clients and users configuration |
 | persistence.storageClass | string | `"azurefile"` | Storage class to claim a volume. |
-| persistence.storageSize | string | `"1Gi"` | Volume size |
+| persistence.storageSize | string | `"2Gi"` | Volume size |
 | podAnnotations | object | `{}` |  |
 | podSecurityContext | object | `{}` | Pod security context configuration |
 | replicaCount | int | `1` | DAPS instances count |
