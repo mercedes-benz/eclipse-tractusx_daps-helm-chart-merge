@@ -37,8 +37,9 @@ DAPS server helm-chart
 | omejdn.defaultAdminUser | string | `"admin:admin"` | Default user credentials in format `user:password` |
 | omejdn.serverKey | string | `""` | Server key content. DAPS will generate key if it's not provided at startup |
 | omejdn.serverKeyFolderPath | string | `"/opt"` | Path to directory with private server key |
+| persistence.accessMode | list | `[]` | Storage accessMode, defaults to ReadWriteOnce |
 | persistence.enabled | bool | `true` | If `true` persistent volume will be used to store clients and users configuration |
-| persistence.storageClass | string | `"azurefile"` | Storage class to claim a volume. |
+| persistence.storageClass | string | `""` | Storage class to claim a volume, defaults to azurefile. |
 | persistence.storageSize | string | `"2Gi"` | Volume size |
 | podAnnotations | object | `{}` |  |
 | podSecurityContext | object | `{}` | Pod security context configuration |
