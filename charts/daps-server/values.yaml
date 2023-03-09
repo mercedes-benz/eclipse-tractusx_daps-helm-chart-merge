@@ -87,8 +87,10 @@ ingress:
 persistence:
   # -- If `true` persistent volume will be used to store clients and users configuration
   enabled: true
-  # -- Storage class to claim a volume.
-  storageClass: "azurefile"
+  # -- Storage class to claim a volume, defaults to azurefile.
+  storageClass: ""
+  # -- Storage accessMode, defaults to ReadWriteOnce.
+  accessMode: []
   # -- Volume size
   storageSize: "2Gi"
 
