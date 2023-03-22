@@ -158,22 +158,6 @@ spec:
           - mountPath: {{ .Values.omejdn.serverKeyFolderPath }}/key.pem
             name: config
             subPath: key.pem
-          - mountPath: {{ .Values.omejdn.serverKeyFolderPath }}/config/users.yml
-            name: config
-            subPath: users.yml
-            readOnly: false
-          - mountPath: {{ .Values.omejdn.serverKeyFolderPath }}/config/clients.yml
-            name: config
-            subPath: clients.yml
-            readOnly: false
-          - mountPath: {{ .Values.omejdn.serverKeyFolderPath }}/config/omejdn.yml
-            name: config
-            subPath: omejdn.yml
-            readOnly: false
-          - mountPath: {{ .Values.omejdn.serverKeyFolderPath }}/config/scope_mapping.yml
-            name: config
-            subPath: scope_mapping.yml
-            readOnly: false
           - mountPath: {{ .Values.omejdn.serverKeyFolderPath }}/keys
             name: config
             subPath: keys
