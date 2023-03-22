@@ -4,11 +4,12 @@ kind: PersistentVolumeClaim
 metadata:
   name: {{ include "daps-server.fullname" . }}
 spec:
-  storageClassName: {{ .Values.persistence.storageClass | default "azurefile" }}
+  {{- if .Values.persistence.storageClass }}
+  storageClassName: {{ .Values.persistence.storageClass }}
+  {{- end }}
   accessModes:
     - {{ .Values.persistence.accessMode | default "ReadWriteOnce" }}
   resources:
     requests:
       storage: {{ .Values.persistence.storageSize }}
-
 {{- end }}
