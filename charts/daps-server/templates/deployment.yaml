@@ -147,6 +147,10 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
+          - mountPath: {{ .Values.omejdn.serverKeyFolderPath }}/config
+            name: config
+            subPath: config
+            readOnly: false
           - mountPath: {{ .Values.omejdn.serverKeyFolderPath }}/config/plugins.yml
             name: plugins-config
             subPath: plugins.yml
