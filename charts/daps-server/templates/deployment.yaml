@@ -31,6 +31,8 @@ spec:
       initContainers:
       - name: init-fill-pvc
         image: alpine
+        securityContext:
+          {{- toYaml .Values.securityContext | nindent 10 }}
         command: 
         - "sh"
         - "-c"
