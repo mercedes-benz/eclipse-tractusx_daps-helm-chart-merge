@@ -84,6 +84,20 @@ ingress:
       # -- Cert-manager issuer name
       issuer: "letsencrypt-prod"
 
+networkPolicy:
+  # -- If `true` network policy will be created to restrict access to DAPS
+  enabled: false
+  # -- NamespaceSelector configuration for network policy
+  namespaceSelector:
+    # -- Labels for namespaces to match with network policy
+    matchLabels: {}
+  # -- PodSelector configuration for network policy
+  podSelector:
+    # -- Labels for pods to match with network policy
+    matchLabels: {}
+  # -- Specify a custom from rule network policy
+  customFrom: []
+
 persistence:
   # -- If `true` persistent volume will be used to store clients and users configuration
   enabled: true
