@@ -60,6 +60,8 @@ service:
   type: ClusterIP
   # -- Service port
   port: 4567
+  # -- Service target port
+  targetPort: 4567
 
 ingress:
   # -- If set to `true`, DAPS will be exposed with ingress controller at http(s)://(ingress.host)/(ingress.pathPrefix)
