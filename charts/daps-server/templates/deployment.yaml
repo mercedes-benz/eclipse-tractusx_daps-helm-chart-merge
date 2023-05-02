@@ -32,6 +32,8 @@ spec:
       - name: init-fill-pvc
         image: alpine
         imagePullPolicy: {{ .Values.image.pullPolicy }}
+        securityContext:
+          {{- toYaml .Values.securityContext | nindent 10 }}
         command: 
         - "sh"
         - "-c"
@@ -129,7 +131,7 @@ spec:
           {{- end}}
           ports:
             - name: http
-              containerPort: 4567
+              containerPort: {{ .Values.service.targetPort }}
               protocol: TCP
           #livenessProbe:
           #  httpGet:

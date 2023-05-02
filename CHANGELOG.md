@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [1.7.6] - 2023-03-29
+
+### Added
+- Added CONTRIBUTING.md, CODE_OF_CONDUCT.md file
+
+## [1.7.5] - 2023-03-09
+
+### Added
+ - Added pvc accessMode values
 
 ## [1.7.3] - 2023-02-27
 
