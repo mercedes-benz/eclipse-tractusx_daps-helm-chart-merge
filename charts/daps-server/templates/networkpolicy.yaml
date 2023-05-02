@@ -36,6 +36,6 @@ spec:
     {{- end }}
   {{- end }}
     ports:
-    - port: 4567
+    - port: {{ .Values.service.targetPort }}
       protocol: TCP
 {{- end }}
