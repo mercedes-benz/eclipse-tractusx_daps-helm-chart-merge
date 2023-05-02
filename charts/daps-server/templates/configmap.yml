@@ -65,7 +65,7 @@ data:
     ---
     issuer: https://{{ .Values.ingress.host }}
     front_url: https://{{ .Values.ingress.host }}
-    bind_to: 0.0.0.0:4567
+    bind_to: 0.0.0.0:{{ .Values.service.targetPort }}
     environment: development
     openid: false
     default_audience: idsc:IDS_CONNECTORS_ALL
