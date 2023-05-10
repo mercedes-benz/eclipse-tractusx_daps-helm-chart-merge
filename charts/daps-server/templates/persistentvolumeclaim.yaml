@@ -3,6 +3,8 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: {{ include "daps-server.fullname" . }}
+  labels:
+    {{- include "daps-server.labels" . | nindent 4 }}
 spec:
   storageClassName: {{ .Values.persistence.storageClass | default "azurefile" }}
   accessModes:
