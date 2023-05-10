@@ -30,8 +30,8 @@ spec:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       initContainers:
       - name: init-fill-pvc
-        image: alpine
         imagePullPolicy: {{ .Values.image.pullPolicy }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         securityContext:
           {{- toYaml .Values.securityContext | nindent 10 }}
         command: 
@@ -39,48 +39,45 @@ spec:
         - "-c"
         args:
         - |
-          ls /tmp/
-          # if [ ! -f /tmp/users.yml ]; then
+          mkdir -p /tmp/config /tmp/keys
+          # ls /tmp/
+          if [ ! -f /tmp/config/users.yml ]; then
             echo "File users.yml not found in pvc!. Creating empty file"
-            touch /tmp/users.yml
-          # fi
+            touch /tmp/config/users.yml
+          fi
           if [ -d /tmp/key.pem ]; then
             echo "Fix key is directory"
             rm -rf /tmp/key.pem
           fi
           if [ ! -f /tmp/key.pem ]; then
             echo "File key.pem not found in pvc!. Generating new key!"
-            apk add openssl
             openssl genrsa -out /tmp/key.pem 1024
           fi
-          if [ ! -f /tmp/clients.yml ]; then
+          if [ ! -f /tmp/config/clients.yml ]; then
             echo "File clients.yml not found in pvc! Creating a new one with default admin client"
             {{- if .Values.omejdn.createDefaultAdmin }}
-            cp /tmp2/clients.yml /tmp/clients.yml
+            cp /tmp2/clients.yml /tmp/config/clients.yml
             {{- else }}
-            touch /tmp/clients.yml
+            touch /tmp/config/clients.yml
             {{- end }}
           fi
-          if [ ! -f /tmp/omejdn.yml ]; then
+          # mounting as configmap is not an option as server expects this file writeable
+          if [ ! -f /tmp/config/omejdn.yml ]; then
             echo "File omejdn.yml not found in pvc! Creating a new one with default admin client"
             {{- if .Values.omejdn.createDefaultAdmin }}
-            cp /tmp2/omejdn.yml /tmp/omejdn.yml
+            cp /tmp2/omejdn.yml /tmp/config/omejdn.yml
             {{- else }}
-            touch /tmp/omejdn.yml
+            touch /tmp/config/omejdn.yml
             {{- end }}
           fi
-          if [ ! -f /tmp/scope_mapping.yml ]; then
+          if [ ! -f /tmp/config/scope_mapping.yml ]; then
             echo "File scope_mapping.yml not found in pvc! Creating a new one with default admin client"
             {{- if .Values.omejdn.createDefaultAdmin }}
-            cp /tmp2/scope_mapping.yml /tmp/scope_mapping.yml
+            cp /tmp2/scope_mapping.yml /tmp/config/scope_mapping.yml
             {{- else }}
-            touch /tmp/scope_mapping.yml
+            touch /tmp/config/scope_mapping.yml
             {{- end }}
           fi
-          if [ ! -d /tmp/keys ]; then
-            echo "keys directory not found in pvc! Creating empty dit"
-            mkdir /tmp/keys
-          fi      
         volumeMounts:
         - name: config
           mountPath: /tmp/
@@ -150,6 +147,10 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
+          - mountPath: {{ .Values.omejdn.serverKeyFolderPath }}/config
+            name: config
+            subPath: config
+            readOnly: false
           - mountPath: {{ .Values.omejdn.serverKeyFolderPath }}/config/plugins.yml
             name: plugins-config
             subPath: plugins.yml
@@ -157,22 +158,6 @@ spec:
           - mountPath: {{ .Values.omejdn.serverKeyFolderPath }}/key.pem
             name: config
             subPath: key.pem
-          - mountPath: {{ .Values.omejdn.serverKeyFolderPath }}/config/users.yml
-            name: config
-            subPath: users.yml
-            readOnly: false
-          - mountPath: {{ .Values.omejdn.serverKeyFolderPath }}/config/clients.yml
-            name: config
-            subPath: clients.yml
-            readOnly: false
-          - mountPath: {{ .Values.omejdn.serverKeyFolderPath }}/config/omejdn.yml
-            name: config
-            subPath: omejdn.yml
-            readOnly: false
-          - mountPath: {{ .Values.omejdn.serverKeyFolderPath }}/config/scope_mapping.yml
-            name: config
-            subPath: scope_mapping.yml
-            readOnly: false
           - mountPath: {{ .Values.omejdn.serverKeyFolderPath }}/keys
             name: config
             subPath: keys
