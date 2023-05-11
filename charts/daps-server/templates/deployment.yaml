@@ -34,7 +34,7 @@ spec:
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         securityContext:
           {{- toYaml .Values.securityContext | nindent 10 }}
-        command: 
+        command:
         - "sh"
         - "-c"
         args:
@@ -133,14 +133,14 @@ spec:
           #livenessProbe:
           #  httpGet:
           #    path: /.well-known/jwks.json
-          #    port: http              
+          #    port: http
           #    scheme: HTTP
           #  failureThreshold: 3
           #  periodSeconds: 3
           #readinessProbe:
           #  httpGet:
           #    path: /.well-known/jwks.json
-          #    port: http              
+          #    port: http
           #    scheme: HTTP
           #  failureThreshold: 3
           #  periodSeconds: 1
@@ -161,7 +161,7 @@ spec:
           - mountPath: {{ .Values.omejdn.serverKeyFolderPath }}/keys
             name: config
             subPath: keys
-            readOnly: false  
+            readOnly: false
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -174,7 +174,7 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      
+
       volumes:
       - name: config
         persistentVolumeClaim:

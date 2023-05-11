@@ -135,7 +135,7 @@ env:
   # -- Additional env variables
   config: {}
   # -- Additional env variables that should be stored in encrypted way
-  secret: {}    
+  secret: {}
 
 # -- Pod resources requests and limits configuration
 resources:
