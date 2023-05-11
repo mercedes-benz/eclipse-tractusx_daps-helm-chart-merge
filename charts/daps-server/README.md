@@ -1,6 +1,6 @@
 # daps-server
 
-![Version: 1.7.6](https://img.shields.io/badge/Version-1.7.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.7.1](https://img.shields.io/badge/AppVersion-1.7.1-informational?style=flat-square)
+![Version: 1.7.7](https://img.shields.io/badge/Version-1.7.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.7.1](https://img.shields.io/badge/AppVersion-1.7.1-informational?style=flat-square)
 
 DAPS server helm-chart
 
@@ -32,6 +32,12 @@ DAPS server helm-chart
 | ingress.tls.certMgr.issuer | string | `"letsencrypt-prod"` | Cert-manager issuer name |
 | ingress.tls.enabled | bool | `false` | If `true` daps will be exposed with https |
 | nameOverride | string | `""` |  |
+| networkPolicy.customFrom | list | `[]` | Specify a custom from rule network policy |
+| networkPolicy.enabled | bool | `false` | If `true` network policy will be created to restrict access to DAPS |
+| networkPolicy.namespaceSelector | object | `{"matchLabels":{}}` | NamespaceSelector configuration for network policy |
+| networkPolicy.namespaceSelector.matchLabels | object | `{}` | Labels for namespaces to match with network policy |
+| networkPolicy.podSelector | object | `{"matchLabels":{}}` | PodSelector configuration for network policy |
+| networkPolicy.podSelector.matchLabels | object | `{}` | Labels for pods to match with network policy |
 | nodeSelector | object | `{}` | Node selection configuration |
 | omejdn.createDefaultAdmin | bool | `true` | Default user and client will be created if set to `true`. User credentials set in `omejdn.defaultAdminUser` section |
 | omejdn.defaultAdminUser | string | `"admin:admin"` | Default user credentials in format `user:password` |
@@ -47,6 +53,7 @@ DAPS server helm-chart
 | resources | object | `{"limits":{"cpu":"200m","memory":"300Mi"},"requests":{"cpu":"200m","memory":"300Mi"}}` | Pod resources requests and limits configuration |
 | securityContext | string | `nil` | Pod security context configuration |
 | service.port | int | `4567` | Service port |
+| service.targetPort | int | `4567` | Service target port |
 | service.type | string | `"ClusterIP"` | Service type |
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
