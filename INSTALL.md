@@ -8,11 +8,11 @@ How to install application using helm:-
     helm install ReleaseName ChartName
     
     a.) Add helm repository in tractusx:-
-           helm repo add daps-server https://eclipse-tractusx.github.io/charts/dev
+           helm repo add daps https://eclipse-tractusx.github.io/charts/dev
     b.) To search the specific repo in helm repositories 
-           helm search repo tractusx-dev
+           helm search repo daps/daps-server
     c.) To install using helm command:-   
-           helm install daps-server tractusx-dev/daps-server
+           helm install daps daps/daps-server
 
 
 2.) Local installation:

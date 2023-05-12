@@ -25,7 +25,7 @@ IMPORTANT: DAPS is meant to be a research sandbox in which we can (re)implement 
 
 ### Software Version
 ```shell
-Helm version is v1.7.6
+Helm version is v1.7.7
 Application version is v1.7.1
 ```
 

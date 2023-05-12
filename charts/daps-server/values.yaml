@@ -48,12 +48,13 @@ podSecurityContext: {}
 
 # -- Pod security context configuration
 securityContext:
+  allowPrivilegeEscalation: false
   # capabilities:
   #   drop:
   #   - ALL
   # readOnlyRootFilesystem: true
   # runAsNonRoot: true
-  # runAsUser: 1000
+  runAsUser: 1000
 
 service:
   # -- Service type
