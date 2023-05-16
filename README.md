@@ -3,8 +3,6 @@
 
 Notice: Tractus-x relies on an IDS-compatible architecture. In that context, a DAPS is needed as an identity server. In this project, we use Fraunhofer's DAPS implementation (https://github.com/Fraunhofer-AISEC/omejdn-server#readme). We recommend choosing your favorite identity server. The provided helm charts here need to be adapted accordingly.
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0.0](https://img.shields.io/badge/AppVersion-1.0.0-informational?style=flat-square)
-
 [https://github.com/Fraunhofer-AISEC/omejdn-server#readme ](https://github.com/Fraunhofer-AISEC/omejdn-server#readme) 
 
 DAPS is a minimal but extensible OAuth 2.0/OpenID connect server used for ..
