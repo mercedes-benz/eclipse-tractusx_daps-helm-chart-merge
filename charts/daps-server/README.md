@@ -1,6 +1,6 @@
 # daps-server
 
-![Version: 1.7.7](https://img.shields.io/badge/Version-1.7.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.7.1](https://img.shields.io/badge/AppVersion-1.7.1-informational?style=flat-square)
+![Version: 1.7.8](https://img.shields.io/badge/Version-1.7.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.7.1](https://img.shields.io/badge/AppVersion-1.7.1-informational?style=flat-square)
 
 DAPS server helm-chart
 
@@ -51,7 +51,7 @@ DAPS server helm-chart
 | podSecurityContext | object | `{}` | Pod security context configuration |
 | replicaCount | int | `1` | DAPS instances count |
 | resources | object | `{"limits":{"cpu":"200m","memory":"300Mi"},"requests":{"cpu":"200m","memory":"300Mi"}}` | Pod resources requests and limits configuration |
-| securityContext | string | `nil` | Pod security context configuration |
+| securityContext | object | `{"allowPrivilegeEscalation":false,"runAsUser":1000}` | Pod security context configuration |
 | service.port | int | `4567` | Service port |
 | service.targetPort | int | `4567` | Service target port |
 | service.type | string | `"ClusterIP"` | Service type |

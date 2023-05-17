@@ -6,6 +6,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+
+## [1.7.8] - 2023-05-16
+
+### Added
+- Added header in files
+- Added .helmignore file
+- Added .tractusx file
+
+### Removed
+- Removed HTML code from INSTALL.md
+
+### Changed
+- Changed CODE_OF_CONDUCT.md file 
+
 ## [1.7.7] - 2023-05-12
 
 ### Added
