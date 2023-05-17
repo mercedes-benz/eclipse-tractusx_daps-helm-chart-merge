@@ -19,7 +19,7 @@ How to install application using helm: <br />
 
     a.) git clone https://github.com/eclipse-tractusx/daps-helm-chart.git
     b.) Modify values file according to your requirement
-    c.) Add the image.repository in the values file (You can use your own images, one available image is available at the frauenhofer      ghcr.io/fraunhofer-aisec/omejdn-server:1.7.1")
-
+    c.) Add the image.repository in the values file (You can use your own images, one available image is available at the fraunhofer
+        "ghcr.io/fraunhofer-aisec/omejdn-server:1.7.1")
     d.) Deploy in a kubernetes cluster
         helm install daps-server charts/daps-server/ -n NameSpace
