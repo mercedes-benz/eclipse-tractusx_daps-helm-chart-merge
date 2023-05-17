@@ -4,7 +4,7 @@ Helm charts are provided inside https://github.com/eclipse-tractusx/daps-helm-ch
 
 1.) Using helm commands: <br />
 
-How to install application using helm:
+How to install application using helm: <br />
     helm install ReleaseName ChartName
     
     a.) Add helm repository in tractusx:
@@ -19,12 +19,7 @@ How to install application using helm:
 
     a.) git clone https://github.com/eclipse-tractusx/daps-helm-chart.git
     b.) Modify values file according to your requirement
-    c.) Add the image.repository in the values file
-    c.) You need to define the secrets as well in values.yaml
-        secret:
-          clientId:  -> Client id for DAPS   
-          clientSecret:   -> Client Secret for DAPS
-
-    d.) These secrets should be defined in Hashicorp vault
-    e.) Deploy in a kubernetes cluster
+    c.) Add the image.repository in the values file (You can use your own images, one available image is available at the fraunhofer
+        "ghcr.io/fraunhofer-aisec/omejdn-server:1.7.1")
+    d.) Deploy in a kubernetes cluster
         helm install daps-server charts/daps-server/ -n NameSpace
