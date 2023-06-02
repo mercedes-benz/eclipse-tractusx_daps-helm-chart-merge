@@ -11,5 +11,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "daps-server.fullname" . }}:{{ .Values.service.port }}']
+      args: ['{{ include "daps-server.fullname" . }}:{{ .Values.service.port }}/.well-known/openid-configuration']
   restartPolicy: Never
