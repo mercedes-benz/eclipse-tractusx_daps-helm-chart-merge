@@ -6,4 +6,4 @@ The following people have contributed to this repository:
 * Dmitrii Vasiunin, doubleSlash Net-Business GmbH, https://github.com/dvasunin
 * Amol Dashwant, T-Systems International GmbH, https://github.com/amoldashwant
 * Fedor Nazarov, doubleSlash Net-Business GmbH, https://github.com/Wulghash 
-
+* Marco Lecheler, Mercedes-Benz Tech Innovation GmbH, https://github.com/fty4
