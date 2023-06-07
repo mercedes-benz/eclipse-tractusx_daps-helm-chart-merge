@@ -59,8 +59,6 @@ data:
     - "securityProfile"
     - "referringConnector"
 
-
-
   omejdn.yml: |-
     ---
     issuer: https://{{ .Values.ingress.host }}
@@ -74,15 +72,14 @@ data:
     - https://{{ .Values.ingress.host }}{{ .Values.ingress.rootPath }}token
     - idsc:IDS_CONNECTORS_ALL
     access_token:
-     expiration: 3600
-     algorithm: RS256
+      expiration: 3600
+      algorithm: RS256
     id_token:
-     expiration: 3600
-     algorithm: RS256
+      expiration: 3600
+      algorithm: RS256
     user_backend:
     - yaml
-      
-  
+
   {{- if .Values.omejdn.createDefaultAdmin }}
   clients.yml: |-
     ---
