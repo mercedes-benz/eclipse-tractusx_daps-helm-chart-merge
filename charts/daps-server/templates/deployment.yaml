@@ -31,7 +31,7 @@ spec:
       initContainers:
       - name: init-fill-pvc
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        image: "{{ .Values.image.repository | required ".Values.image.repository is required" }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         securityContext:
           {{- toYaml .Values.securityContext | nindent 10 }}
         command:
@@ -99,7 +99,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.image.repository | required ".Values.image.repository is required" }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
           - name: OMEJDN_PLUGINS
