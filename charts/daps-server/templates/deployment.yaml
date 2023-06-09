@@ -132,18 +132,18 @@ spec:
               protocol: TCP
           #livenessProbe:
           #  httpGet:
-          #    path: /.well-known/jwks.json
+          #    path: http://localhost:4567/.well-known/openid-configuration
           #    port: http
           #    scheme: HTTP
           #  failureThreshold: 3
           #  periodSeconds: 3
-          #readinessProbe:
-          #  httpGet:
-          #    path: /.well-known/jwks.json
-          #    port: http
-          #    scheme: HTTP
-          #  failureThreshold: 3
-          #  periodSeconds: 1
+          readinessProbe:
+           httpGet:
+             path:  http://localhost:4567/.well-known/openid-configuration
+             port: http
+             scheme: HTTP
+           failureThreshold: 3
+           periodSeconds: 1
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
