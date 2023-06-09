@@ -77,6 +77,8 @@ spec:
             touch /tmp/config/scope_mapping.yml
             {{- end }}
           fi
+        resources:
+          {{- toYaml .Values.resources | nindent 10 }}
         volumeMounts:
         - name: config
           mountPath: /tmp/
