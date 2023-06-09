@@ -1,4 +1,3 @@
-{{- $fullName := include "daps-server.fullname" . -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -116,14 +115,14 @@ spec:
           - name: {{ $key }}
             valueFrom:
               secretKeyRef:
-                name: {{ $fullName }}
+                name: {{ include "daps-server.fullname" $ }}
                 key: {{ $key }}
           {{- end}}
           {{- range $key, $val := .Values.env.config }}
           - name: {{ $key }}
             valueFrom:
               secretKeyRef:
-                name: {{ $fullName }}
+                name: {{ include "daps-server.fullname" $ }}
                 key: {{ $key }}
           {{- end}}
           ports:

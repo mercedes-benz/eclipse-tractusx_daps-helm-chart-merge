@@ -1,5 +1,4 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "daps-server.fullname" . -}}
 {{- $ingressExtraPaths := .Values.ingress.extraPaths -}}
 {{- $svcName := include "daps-server.fullname" . -}}
 {{- $svcPort := .Values.service.port -}}
@@ -12,7 +11,7 @@ apiVersion: extensions/v1beta1
 {{- end }}
 kind: Ingress
 metadata:
-  name: {{ $fullName }}
+  name: {{ include "daps-server.fullname" . }}
   labels:
     {{- include "daps-server.labels" . | nindent 4 }}
   annotations:
@@ -59,7 +58,7 @@ apiVersion: extensions/v1beta1
 {{- end }}
 kind: Ingress
 metadata:
-  name: {{ $fullName }}-jwks
+  name: "{{ include "daps-server.fullname" . }}-jwks"
   labels:
     {{- include "daps-server.labels" . | nindent 4 }}
   annotations:
@@ -78,11 +77,11 @@ spec:
             backend:
               {{- if semverCompare ">=1.20-0" .Capabilities.KubeVersion.GitVersion }}
               service:
-                name: {{ $fullName }}
+                name: {{ include "daps-server.fullname" . }}
                 port:
                   number: {{ $svcPort }}
               {{- else }}
-              serviceName: {{ $fullName }}
+              serviceName: {{ include "daps-server.fullname" . }}
               servicePort: {{ $svcPort }}
               {{- end }}
 {{- end }}
