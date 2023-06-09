@@ -1,4 +1,4 @@
-#******************************************************************************
+# ******************************************************************************
 # Copyright (c) 2022, 2023 T-Systems International GmbH
 # Copyright (c) 2022, 2023 Contributors to the Eclipse Foundation
 #
@@ -16,7 +16,7 @@
 # under the License.
 #
 # SPDX-License-Identifier: Apache-2.0
-#*******************************************************************************
+# *******************************************************************************
 
 # Default values for daps-server.
 # This is a YAML-formatted file.

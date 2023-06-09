@@ -1,4 +1,4 @@
-#******************************************************************************
+# ******************************************************************************
 # Copyright (c) 2022, 2023 T-Systems International GmbH
 # Copyright (c) 2022, 2023 Contributors to the Eclipse Foundation
 #
@@ -16,7 +16,7 @@
 # under the License.
 #
 # SPDX-License-Identifier: Apache-2.0
-#*******************************************************************************
+# *******************************************************************************
 
 apiVersion: v2
 name: daps-server
@@ -33,7 +33,7 @@ description: DAPS server helm-chart
 type: application
 
 sources:
-  -  https://github.com/eclipse-tractusx/daps-helm-chart
+  - https://github.com/eclipse-tractusx/daps-helm-chart
 
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
