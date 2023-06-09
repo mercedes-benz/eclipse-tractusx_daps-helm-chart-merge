@@ -130,13 +130,13 @@ spec:
             - name: http
               containerPort: {{ .Values.service.targetPort }}
               protocol: TCP
-          #livenessProbe:
-          #  httpGet:
-          #    path: http://localhost:4567/.well-known/openid-configuration
-          #    port: http
-          #    scheme: HTTP
-          #  failureThreshold: 3
-          #  periodSeconds: 3
+          # livenessProbe:
+          #   httpGet:
+          #     path: http://localhost:4567/.well-known/openid-configuration
+          #     port: http
+          #     scheme: HTTP
+          #   failureThreshold: 3
+          #   periodSeconds: 3
           readinessProbe:
            httpGet:
              path:  http://localhost:4567/.well-known/openid-configuration
