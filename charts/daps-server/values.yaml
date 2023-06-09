@@ -65,6 +65,9 @@ podAnnotations: {}
 # -- Pod security context configuration
 podSecurityContext:
   fsGroup: 1000
+  runAsNonRoot: true
+  runAsUser: 1000
+  runAsGroup: 1000
 
 # -- Pod security context configuration
 securityContext:
@@ -73,9 +76,6 @@ securityContext:
     drop:
     - ALL
   readOnlyRootFilesystem: true
-  runAsNonRoot: true
-  runAsUser: 1000
-  runAsGroup: 1000
 
 service:
   # -- Service type
