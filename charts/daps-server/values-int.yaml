@@ -41,10 +41,9 @@ ingress:
       # -- Cert-manager issuer name
       issuer: "letsencrypt-prod"
 
-daps:
-  secret:
-    clientId: "<path:essential-services/data/daps#clientId>"
-    clientSecret: "<path:essential-services/data/daps#clientSecret>"
+secret:
+  clientId: "<path:essential-services/data/daps#clientId>"
+  clientSecret: "<path:essential-services/data/daps#clientSecret>"
     
     
 resources:
