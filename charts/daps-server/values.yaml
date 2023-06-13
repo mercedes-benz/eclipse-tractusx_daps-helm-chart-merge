@@ -92,7 +92,7 @@ ingress:
   #  kubernetes.io/ingress.class: nginx
   #  kubernetes.io/tls-acme: "true"
   # -- Ingress host name
-  host: daps-beta.int.demo.catena-x.net
+  host: "{{ .Release.Name }}-daps-server"
   # -- Path prefix to be added to DAPS URI. Regex can be used
   pathPrefix: "/"
   # -- Root prefix without regex rules that used to configure daps host name in configuration

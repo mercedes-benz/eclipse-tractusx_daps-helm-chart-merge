@@ -61,15 +61,15 @@ data:
 
   omejdn.yml: |-
     ---
-    issuer: https://{{ .Values.ingress.host }}
-    front_url: https://{{ .Values.ingress.host }}
+    issuer: http{{- if .Values.ingress.tls.enabled -}}s{{- end -}}://{{ tpl .Values.ingress.host . }}
+    front_url: http{{- if .Values.ingress.tls.enabled -}}s{{- end -}}://{{ tpl .Values.ingress.host . }}
     bind_to: 0.0.0.0:{{ .Values.service.targetPort }}
     environment: development
     openid: false
     default_audience: idsc:IDS_CONNECTORS_ALL
     accept_audience:
-    - https://{{ .Values.ingress.host }}{{ .Values.ingress.rootPath }}
-    - https://{{ .Values.ingress.host }}{{ .Values.ingress.rootPath }}token
+    - http{{- if .Values.ingress.tls.enabled -}}s{{- end -}}://{{ tpl .Values.ingress.host . }}{{ .Values.ingress.rootPath }}
+    - http{{- if .Values.ingress.tls.enabled -}}s{{- end -}}://{{ tpl .Values.ingress.host . }}{{ .Values.ingress.rootPath }}token
     - idsc:IDS_CONNECTORS_ALL
     access_token:
       expiration: 3600
