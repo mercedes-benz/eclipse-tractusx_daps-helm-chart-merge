@@ -1,0 +1,16 @@
+apiVersion: v1
+entries:
+  daps-server:
+  - apiVersion: v2
+    appVersion: 1.7.1
+    created: "2023-06-13T11:36:35.45391461Z"
+    description: DAPS server helm-chart
+    digest: 7c91b542d39d47039966c52cd370fd29ca7ba0ad4b8bd1e6bbc6294f96fcc296
+    name: daps-server
+    sources:
+    - https://github.com/eclipse-tractusx/daps-helm-chart
+    type: application
+    urls:
+    - https://github.com/mercedes-benz/eclipse-tractusx_daps-helm-chart-merge/releases/download/daps-server-1.7.11/daps-server-1.7.11.tgz
+    version: 1.7.11
+generated: "2023-06-13T11:36:35.453921411Z"
